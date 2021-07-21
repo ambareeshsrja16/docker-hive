@@ -3,6 +3,7 @@ version: "3"
 services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    container_name: namenode
     volumes:
       - namenode:/hadoop/dfs/name
     environment:
@@ -13,6 +14,7 @@ services:
       - "50070:50070"
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    container_name: datanode
     volumes:
       - datanode:/hadoop/dfs/data
     env_file:
@@ -23,6 +25,7 @@ services:
       - "50075:50075"
   hive-server:
     image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: hive-server
     env_file:
       - ./hadoop-hive.env
     environment:
@@ -32,6 +35,7 @@ services:
       - "10000:10000"
   hive-metastore:
     image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: hive-metastore
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
@@ -41,10 +45,27 @@ services:
       - "9083:9083"
   hive-metastore-postgresql:
     image: bde2020/hive-metastore-postgresql:2.3.0
+    container_name: hive-metastore-postgresql
   trino:
-    image: trinodb/trino:353                                                       
-    ports:                                                                         
+    image: trinodb/trino:353
+    container_name: trino
+    ports:
       - "8080:8080"
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.4
+    container_name: elastic
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: "single-node"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.13.4
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: "http://elastic:9200"
 
 volumes:
   namenode:
