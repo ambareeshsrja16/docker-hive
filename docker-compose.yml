@@ -47,7 +47,9 @@ services:
     image: bde2020/hive-metastore-postgresql:2.3.0
     container_name: hive-metastore-postgresql
   trino:
-    image: trinodb/trino:353
+    build:
+      context: ./trino_docker
+      dockerfile: Dockerfile
     container_name: trino
     ports:
       - "8080:8080"
