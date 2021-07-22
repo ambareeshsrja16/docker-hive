@@ -10,6 +10,17 @@ elastic
 kibana
 druid:0.21.1
 
+Check all DBs from their UIs:
+trino: <ip>:8080
+elastic/kiban: <ip>:5601
+druid: <ip>:8889
+
+Druid Router has been remapped to 8889 on the container. Reconfigure at
+docker-compose.yml
+
+Add sample data for elastic and druid and try querying:
+`SELECT dayofweek, flags FROM elasticsearch.default.kibana_sample_data_flights, druid.druid.wikipedia`
+
 ## docker-hive
 This is a docker container for Apache Hive 2.3.2. It is based on https://github.com/big-data-europe/docker-hadoop so check there for Hadoop configurations.
 This deploys Hive and starts a hiveserver2 on port 10000.
