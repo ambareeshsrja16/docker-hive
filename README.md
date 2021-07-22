@@ -2,6 +2,15 @@
 
 # docker-hive
 
+## Services
+
+docker-hive
+trino:353
+elastic
+kibana
+druid:0.21.1
+
+## docker-hive
 This is a docker container for Apache Hive 2.3.2. It is based on https://github.com/big-data-europe/docker-hadoop so check there for Hadoop configurations.
 This deploys Hive and starts a hiveserver2 on port 10000.
 Metastore is running with a connection to postgresql database.
