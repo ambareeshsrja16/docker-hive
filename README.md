@@ -35,13 +35,13 @@ Bring up docker containers with trino to run federated queries on elastic and dr
 
  2. Check if all services are functioning from their UIs:
 
-    > trino: https://< IP >:8080
-    > elastic/kibana: https://< IP >:5601
-    > druid: https://< IP >:8889
+    > trino: https://< IP >:8080 </br>
+    > elastic/kibana: https://< IP >:5601 </br>
+    > druid: https://< IP >:8889 </br>
 
-    Note: Druid Router has been remapped to 8889 on the container. Reconfigure any port, if need be, from `docker-compose.yml`
+    Note: Druid Router has been remapped to 8889 on the container. Reconfigure any port, if need be, from `docker-compose.yml`.
 
-3.    Add sample data for elastic and druid from their UIs and try querying. For e.g:
+3.    Add sample data for elastic and druid from their UIs and try querying. For e.g: </br>
  `SELECT dayofweek, flags FROM elasticsearch.default.kibana_sample_data_flights, druid.druid.wikipedia`
 
 
