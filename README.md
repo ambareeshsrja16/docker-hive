@@ -52,7 +52,7 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
       - Trino logs are at `/data/trino/var/log/`
  - Versions for base docker images can be configured at `docker-compose.yml`. But for the Trino instance it has to be configured at `trino_docker/Dockerfile`
  - To connect a separate instance of Trino (say from an IDE), add *.properties similar to ones under `trino_docker/` and replace relevant fields with correct IPs.
-       - If running the full server as described [here](https://github.com/trinodb/trino), add *.properties files to `/trino/testing/trino-server-dev/etc/catalog/` and make sure `plugin.bundles` in `/trino/testing/trino-server-dev/etc/config.properties` contains the corresponding `pom.xml` files
+    - If running the full server as described [here](https://github.com/trinodb/trino), add *.properties files to `/trino/testing/trino-server-dev/etc/catalog/` and make sure `plugin.bundles` in `/trino/testing/trino-server-dev/etc/config.properties` contains the corresponding `pom.xml` files
 
 
 Forked off [docker-hive](https://github.com/big-data-europe/docker-hive)
