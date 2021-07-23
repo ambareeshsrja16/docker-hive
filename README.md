@@ -12,26 +12,25 @@ Bring up docker containers with trino to run federated queries on elastic and dr
 
  1. Run `docker-compose up -d`
 
-    Check containers  `docker ps -a`
-    Specifically these containers will be up `docker ps -a --format '{{.Names}}' | sort`
+    Check containers  `docker ps -a`.
+    Specifically these containers will be up `docker ps -a --format '{{.Names}}' | sort` :
 
 
 > broker
->  coordinator
->   datanode
->    elastic
->     historical
->      hive-metastore
+> coordinator
+> datanode
+> elastic
+> historical
+> hive-metastore
 > hive-metastore-postgresql
 > hive-server
 > kibana
 > middlemanager
->  namenode
+> namenode
 > postgres
 > router
 > trino
 > zookeeper
-
 
 
  2. Check if all services are functioning from their UIs:
