@@ -4,7 +4,7 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 ## Services
 
  1. [Trino](https://hub.docker.com/r/trinodb/trino)
- 2. [hive](https://github.com/big-data-europe/docker-hive)
+ 2. [Hive](https://github.com/big-data-europe/docker-hive)
  3. [Elastic + Kibana](https://www.elastic.co/guide/en/kibana/current/docker.html)
  4. [Druid](https://druid.apache.org/docs/latest/tutorials/docker.html)
 
