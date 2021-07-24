@@ -12,7 +12,7 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 
  1. Run `docker-compose up -d`
 
-    Check containers `docker ps -a`. <\br>
+    Check containers `docker ps -a`. </br>
     Specifically these containers will be up `docker ps -a --format '{{.Names}}' | sort` :
 
     > broker </br>
@@ -31,15 +31,15 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
     > trino </br>
     > zookeeper </br>
 
- 2. Check if all services are functioning from their UIs:
+ 2. Check all services from their UIs:
 
     > Trino: https://< IP >:8080 </br>
     > Elastic/Kibana: https://< IP >:5601 </br>
     > Druid: https://< IP >:8889 </br>
 
-    Note: Druid Router has been remapped to 8889 on the container. Reconfigure any port, if need be, from `docker-compose.yml`.
+    Note: Druid Router is mapped to 8889 on the container. Reconfigure any port, if need be, from `docker-compose.yml`.
 
-3.  Add sample data for Elastic and Druid from their UIs and try querying. For e.g: </br>
+3.  Add sample data to Elastic and Druid from their UIs and try querying. For e.g: </br>
 
     > SELECT dayofweek, flags FROM elasticsearch.default.kibana_sample_data_flights, druid.druid.wikipedia
 
@@ -51,8 +51,8 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
  - For sudo access to Trino container `docker exec -u 0 -it trino /bin/bash`
       - Trino logs are at `/data/trino/var/log/`
  - Versions for base docker images can be configured at `docker-compose.yml`. But for the Trino instance it has to be configured at `trino_docker/Dockerfile`
- - To connect a separate instance of Trino (say from an IDE), add *.properties similar to ones under `trino_docker/` and replace relevant fields with correct IPs.
-    - If running the full server as described [here](https://github.com/trinodb/trino), add *.properties files to `/trino/testing/trino-server-dev/etc/catalog/` and make sure `plugin.bundles` in `/trino/testing/trino-server-dev/etc/config.properties` contains the corresponding `pom.xml` files
+ - To connect a separate instance of Trino (say from an IDE), add `*.properties` files similar to ones under `trino_docker/` and replace relevant fields with correct IPs.
+    - If running the full server as described [here](https://github.com/trinodb/trino), add `*.properties` files to `/trino/testing/trino-server-dev/etc/catalog/` and make sure `plugin.bundles` in `/trino/testing/trino-server-dev/etc/config.properties` contains the corresponding `pom.xml` files
 
 
 Forked off [docker-hive](https://github.com/big-data-europe/docker-hive)
