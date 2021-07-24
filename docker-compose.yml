@@ -80,6 +80,7 @@ services:
       - POSTGRES_USER=druid
       - POSTGRES_DB=druid
 
+  # druid related
   # Need 3.5 or later for container nodes
   zookeeper:
     container_name: zookeeper
@@ -87,6 +88,7 @@ services:
     environment:
       - ZOO_MY_ID=1
 
+  # druid related
   coordinator:
     image: apache/druid:0.21.1
     container_name: coordinator
@@ -103,6 +105,7 @@ services:
     env_file:
       - ./druid_docker/environment
 
+  # druid related
   broker:
     image: apache/druid:0.21.1
     container_name: broker
@@ -119,6 +122,7 @@ services:
     env_file:
       - ./druid_docker/environment
 
+  # druid related
   historical:
     image: apache/druid:0.21.1
     container_name: historical
@@ -136,6 +140,7 @@ services:
     env_file:
       - ./druid_docker/environment
 
+  # druid related
   middlemanager:
     image: apache/druid:0.21.1
     container_name: middlemanager
@@ -153,6 +158,7 @@ services:
     env_file:
       - ./druid_docker/environment
 
+  # druid related
   router:
     image: apache/druid:0.21.1
     container_name: router
@@ -172,7 +178,7 @@ services:
 volumes:
   namenode:
   datanode:
-  # druid related
+  # druid related BEGIN
   metadata_data:
   middle_var:
   historical_var:
@@ -180,3 +186,4 @@ volumes:
   coordinator_var:
   router_var:
   druid_shared:
+  # druid related END
