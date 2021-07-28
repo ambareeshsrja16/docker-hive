@@ -43,6 +43,10 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 
     > SELECT dayofweek, flags FROM elasticsearch.default.kibana_sample_data_flights, druid.druid.wikipedia
 
+4.  To stop and remove all containers:                                             
+                                                                                   
+    > docker-compose down
+
 ## Notes:
 
  - Druid related docker containers are marked with `#druid related` in
