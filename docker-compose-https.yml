@@ -12,8 +12,6 @@ services:
       - ./hadoop-hive.env
     ports:
       - "50070:50070"
-    profiles: ["hdfs"]
-
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     container_name: datanode
@@ -25,8 +23,6 @@ services:
       SERVICE_PRECONDITION: "namenode:50070"
     ports:
       - "50075:50075"
-    profiles: ["hdfs"]
-
   hive-server:
     image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-server
@@ -37,8 +33,6 @@ services:
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
       - "10000:10000"
-    profiles: ["hdfs"]
-
   hive-metastore:
     image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-metastore
@@ -49,13 +43,9 @@ services:
       SERVICE_PRECONDITION: "namenode:50070 datanode:50075 hive-metastore-postgresql:5432"
     ports:
       - "9083:9083"
-    profiles: ["hdfs"]
-
   hive-metastore-postgresql:
     image: bde2020/hive-metastore-postgresql:2.3.0
     container_name: hive-metastore-postgresql
-    profiles: ["hdfs"]
-
   trino:
     build:
       context: ./trino_docker
@@ -63,7 +53,7 @@ services:
     container_name: trino
     ports:
       - "8080:8080"
-
+      - "8443:8443"
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.13.4
     container_name: elastic
@@ -72,8 +62,6 @@ services:
       - "9300:9300"
     environment:
       discovery.type: "single-node"
-    profiles: ["elastic"]
-
   kibana:
     image: docker.elastic.co/kibana/kibana:7.13.4
     container_name: kibana
@@ -81,7 +69,6 @@ services:
       - "5601:5601"
     environment:
       ELASTICSEARCH_HOSTS: "http://elastic:9200"
-    profiles: ["elastic"]
 
   # druid related
   postgres:
@@ -93,7 +80,6 @@ services:
       - POSTGRES_PASSWORD=FoolishPassword
       - POSTGRES_USER=druid
       - POSTGRES_DB=druid
-    profiles: ["druid"]
 
   # druid related
   # Need 3.5 or later for container nodes
@@ -102,7 +88,6 @@ services:
     image: zookeeper:3.5
     environment:
       - ZOO_MY_ID=1
-    profiles: ["druid"]
 
   # druid related
   coordinator:
@@ -120,7 +105,6 @@ services:
       - coordinator
     env_file:
       - ./druid_docker/environment
-    profiles: ["druid"]
 
   # druid related
   broker:
@@ -138,7 +122,6 @@ services:
       - broker
     env_file:
       - ./druid_docker/environment
-    profiles: ["druid"]
 
   # druid related
   historical:
@@ -157,7 +140,6 @@ services:
       - historical
     env_file:
       - ./druid_docker/environment
-    profiles: ["druid"]
 
   # druid related
   middlemanager:
@@ -176,7 +158,6 @@ services:
       - middleManager
     env_file:
       - ./druid_docker/environment
-    profiles: ["druid"]
 
   # druid related
   router:
@@ -194,7 +175,6 @@ services:
       - router
     env_file:
       - ./druid_docker/environment
-    profiles: ["druid"]
 
 volumes:
   namenode:
