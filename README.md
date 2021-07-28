@@ -18,8 +18,8 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
         -   `hdfs`
 
     Examples:
-    Trino + Elastic + Druid: `docker-compose --profile elastic --profile druid up -d`
-    Trino + Elastic + HDFS : `docker-compose --profile elastic --profile hdfs up -d`
+    Trino + Elastic + Druid: `docker-compose --profile elastic --profile druid up -d` </br>
+    Trino + Elastic + HDFS : `docker-compose --profile elastic --profile hdfs up -d` </br>
     and so on.
 
     Check containers `docker ps -a`. </br>
