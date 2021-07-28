@@ -10,10 +10,20 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 
 ## Steps
 
- 1. Run `docker-compose up -d`
+ 1. Bring up services
+    * For only Trino, run `docker-compose up -d`
+    * For services in addition to Trino use appropriate `profile` options:
+        -   `elastic`
+        -   `druid`
+        -   `hdfs`
+
+    Examples:
+    Trino + Elastic + Druid: `docker-compose --profile elastic --profile druid up -d`
+    Trino + Elastic + HDFS : `docker-compose --profile elastic --profile hdfs up -d`
+    and so on.
 
     Check containers `docker ps -a`. </br>
-    Specifically these containers will be up `docker ps -a --format '{{.Names}}' | sort` :
+    When all profiles are used, these containers will be up `docker ps -a --format '{{.Names}}' | sort` :
 
     > broker </br>
     > coordinator </br>
@@ -43,8 +53,8 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 
     > SELECT dayofweek, flags FROM elasticsearch.default.kibana_sample_data_flights, druid.druid.wikipedia
 
-4.  To stop and remove all containers:                                             
-                                                                                   
+4.  To stop and remove all containers:
+
     > docker-compose down
 
 ## Notes:
