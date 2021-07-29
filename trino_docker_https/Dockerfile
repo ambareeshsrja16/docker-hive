@@ -1,7 +1,7 @@
 FROM trinodb/trino:353
 
 # To enable catalog connections to {elastic, druid ...}
-COPY ./elastic.properties /etc/trino/catalog/
+COPY ./elasticsearch.properties /etc/trino/catalog/
 COPY ./druid.properties /etc/trino/catalog/
 
 # Config file with https enabled
