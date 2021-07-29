@@ -83,6 +83,7 @@ services:
       ELASTICSEARCH_HOSTS: "http://elastic:9200"
     profiles: ["elastic"]
 
+
   # druid related
   postgres:
     container_name: postgres
