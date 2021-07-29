@@ -60,7 +60,7 @@ services:
     build:
       context: ./trino_docker_https
       dockerfile: Dockerfile
-    container_name: trino
+    container_name: trino_https
     ports:
       - "8080:8080"
       - "8443:8443"
