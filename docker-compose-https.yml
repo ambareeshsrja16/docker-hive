@@ -58,7 +58,7 @@ services:
 
   trino:
     build:
-      context: ./trino_docker_https
+      context: ./trino_https_docker
       dockerfile: Dockerfile
     container_name: trino_https
     ports:
