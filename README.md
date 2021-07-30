@@ -75,10 +75,10 @@ To bring up Trino with HTTPS/TLS enabled and to experiment with File system acce
 
      docker-compose -f docker-compose-https.yml up -d
 
-Profiles can be used as previously. Three users : dev, test, testadmin are available, and passwords are same as usernames.
+Profiles can be used as previously. Three users : `dev`, `test`, `testadmin` are available, and passwords are same as usernames.
 
 TODO: 
-Data ingestions
-Password creation via script
+* Data ingestions
+* Password creation via script
 
 Forked off [docker-hive](https://github.com/big-data-europe/docker-hive)
