@@ -73,7 +73,7 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
 
 To bring up Trino with HTTPS/TLS enabled and to experiment with File system access control use: </br>
 
-    > docker-compose -f docker-compose-https.yml up -d
+     docker-compose -f docker-compose-https.yml up -d
 
 Profiles can be used as previously. Three users : dev, test, testadmin are available, and passwords are same as usernames.
 
