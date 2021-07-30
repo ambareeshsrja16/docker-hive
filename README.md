@@ -67,5 +67,17 @@ Bring up docker containers with Trino to run federated queries on Elastic and Dr
  - To connect a separate instance of Trino (say from an IDE), add `*.properties` files similar to ones under `trino_docker/` and replace relevant fields with correct IPs.
     - If running the full server as described [here](https://github.com/trinodb/trino), add `*.properties` files to `/trino/testing/trino-server-dev/etc/catalog/` and make sure `plugin.bundles` in `/trino/testing/trino-server-dev/etc/config.properties` contains the corresponding `pom.xml` files
 
+## Advanced
+
+### Authentication and Authorization
+
+To bring up Trino with HTTPS/TLS enabled and to experiment with File system access control use:
+    > docker-compose -f docker-compose-https.yml up -d
+
+Profiles can be used as previously. Three users : dev, test, testadmin are available, and passwords are same as usernames.
+
+TODO: 
+Data ingestions
+Password creation via script
 
 Forked off [docker-hive](https://github.com/big-data-europe/docker-hive)
