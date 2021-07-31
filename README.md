@@ -77,6 +77,12 @@ To bring up Trino with HTTPS/TLS enabled and to experiment with File system acce
 
 Profiles can be used as previously. Three users : `dev`, `test`, `testadmin` are available, and passwords are same as usernames.
 
+To access the Trino instance from CLI: </br>
+
+     ./trino --server https://localhost:8443 --keystore-path /home/username/clustercoord.pem --user test --password
+
+Client should copy the `clustercoord.pem` file from `trino_https_docker`
+
 TODO: 
 * Data ingestions
 * Password creation via script
