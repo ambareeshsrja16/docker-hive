@@ -1,0 +1,42 @@
+{ 
+  "catalogs": [
+    { 
+      "user": "testadmin",
+      "catalog": ".*",
+      "allow": "all"
+    },
+    { 
+      "user": "dev",
+      "catalog": "druid",
+      "allow": "all"
+    },
+    { 
+      "user": "test",
+      "catalog": "elasticsearch",
+      "allow": "all"
+    },
+    { 
+      "group": "testing|developing",
+      "catalog": "postgres",
+      "allow": true
+    },
+  ],
+  "tables": [
+    {
+      "user": "testadmin",
+      "privileges": ["SELECT", "INSERT", "DELETE", "OWNERSHIP"]
+    },
+    {
+      "user": "banned_user",
+      "privileges": []
+    },
+    {
+      "user": "dev",
+      "catalog": "elasticsearch",
+      "schema": "default",
+      "table": "new_data",
+      "privileges": ["SELECT"],
+    }
+  ]
+}
+
